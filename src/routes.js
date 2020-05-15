@@ -1,24 +1,15 @@
 import React from 'react';
-import { Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import Home from 'pages/Home';
-import Dashboard from 'pages/Dashboard';
-import history from 'services/history';
-
-const routes = [
-  { path: '/', component: Home },
-  { path: '/dashboard', component: Dashboard },
-];
+import FilterPage from 'pages/FilterPage';
 
 function Routes() {
-  const routeComponents = routes.map(({ path, component }, key) => (
-    <Route exact path={path} component={component} key={key} />
-  ));
-
   return (
-    <Router history={history}>
-      <Switch>{routeComponents}</Switch>
-    </Router>
+    <Switch>
+      <Route path="/" exact component={Home} />
+      <Route path="/filter" component={FilterPage} />
+    </Switch>
   );
 }
 
