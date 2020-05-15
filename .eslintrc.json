@@ -23,8 +23,10 @@
         "extensions": [".js", ".jsx"]
       }
     ],
+    "react/jsx-props-no-spreading": "off",
     "import/no-unresolved": "off",
     "global-require": "off",
+    "arrow-parens": "off",
     "import/prefer-default-export": "off",
     "no-unused-expressions": ["error", { "allowTaggedTemplates": true }]
   }
