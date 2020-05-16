@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
+import Centered from '../../components/Centered';
 import {
   AnimationContainer,
   ContainerAutocomplete,
-  Header,
-  Form,
+  Title,
+  FormAutocomplete,
   Button,
 } from './styles';
 
@@ -24,45 +25,53 @@ function Home() {
   return (
     <>
       <AnimationContainer>
-        <Header>
-          <h2>Projeto Retomar</h2>
-        </Header>
+        <Centered column>
+          <Title>Projeto Retomar</Title>
 
-        <Form>
-          <ContainerAutocomplete>
-            <Autocomplete
-              options={estadosEscalonados}
-              getOptionLabel={option => option.dsEstado}
-              style={{ width: 200 }}
-              id="estado"
-              debug
-              onChange={(event, newValue) => {
-                setEstado(newValue);
-              }}
-              renderInput={params => (
-                <TextField {...params} label="Estado" margin="normal" />
-              )}
-            />
-          </ContainerAutocomplete>
-          <ContainerAutocomplete>
-            <Autocomplete
-              options={cidadesEscalonadas}
-              getOptionLabel={option => option.dsCidade}
-              style={{ width: 400 }}
-              id="cidade"
-              debug
-              onChange={(event, newValue) => {
-                setCidade(newValue);
-              }}
-              renderInput={params => (
-                <TextField {...params} label="Cidade" margin="normal" />
-              )}
-            />
-          </ContainerAutocomplete>
+          <p>In est ante in nibh mauris cursus mattis.</p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+
+          <FormAutocomplete>
+            <ContainerAutocomplete>
+              <Autocomplete
+                options={estadosEscalonados}
+                getOptionLabel={option => option.dsEstado}
+                style={{ width: 200 }}
+                id="estado"
+                debug
+                onChange={(event, newValue) => {
+                  setEstado(newValue);
+                }}
+                renderInput={params => (
+                  <TextField {...params} label="Estado" margin="normal" />
+                )}
+              />
+            </ContainerAutocomplete>
+
+            <ContainerAutocomplete>
+              <Autocomplete
+                options={cidadesEscalonadas}
+                getOptionLabel={option => option.dsCidade}
+                style={{ width: 400 }}
+                id="cidade"
+                debug
+                onChange={(event, newValue) => {
+                  setCidade(newValue);
+                }}
+                renderInput={params => (
+                  <TextField {...params} label="Cidade" margin="normal" />
+                )}
+              />
+            </ContainerAutocomplete>
+          </FormAutocomplete>
+
           <Link to="/filter">
-            <Button type="submit">Pesquisar</Button>
+            <Button type="submit">Continuar</Button>
           </Link>
-        </Form>
+        </Centered>
       </AnimationContainer>
     </>
   );

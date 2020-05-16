@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { shade } from 'polished';
 
 export const AnimationContainer = styled.div`
-  animation: slideUp 1s cubic-bezier(0.29, 0.71, 0.73, 0.76);
+  animation: slideUp 0.8s cubic-bezier(0.25, 0.84, 0.83, 0.87);
 
   @keyframes slideUp {
     from {
@@ -37,40 +37,56 @@ export const Header = styled.header`
   }
 `;
 
-export const Form = styled.form`
-  margin-top: 40px;
+export const Title = styled.h1`
+  font-size: 48px;
+  color: #3a3a3a;
+  max-width: 450px;
+  line-height: 56px;
+
+  margin-top: 80px;
+`;
+
+export const FormAutocomplete = styled.form`
+  margin: 40px 0;
+  max-width: 800px;
 
   display: flex;
   align-items: center;
+`;
+
+export const ContainerAutocomplete = styled.div`
+  display: flex;
+  align-items: center;
   justify-content: center;
+  margin: 0 20px;
+`;
 
-  input {
-    width: 500px;
-    height: 70px;
-    padding: 0 24px;
-    border: 0;
-    border-radius: 5px 0px 0px 5px;
+export const Input = styled.input`
+  width: 500px;
+  height: 50px;
+  border: 0;
+  border-radius: 5px;
+  color: #3a3a3a;
+  border: 2px solid #fff;
+  padding: 0 24px;
+
+  &::placeholder {
     color: #3a3a3a;
-    border: 2px solid #fff;
-    border-right: 0;
-
-    &::placeholder {
-      color: #3a3a3a;
-    }
   }
+`;
 
-  button {
-    width: 210px;
-    height: 70px;
-    background: #04d361;
-    border-radius: 0px 5px 5px 0px;
-    border: 0;
-    color: #fff;
-    font-weight: bold;
-    transition: background-color 0.2s;
+export const Button = styled.button`
+  width: 210px;
+  height: 35px;
+  background: #1b76c1;
+  border-radius: 5px;
+  border: 0;
+  color: #fff;
+  margin-top: 30px;
+  font-weight: bold;
+  transition: background-color 0.2s;
 
-    &:hover {
-      background: ${shade(0.2, '#04d361')};
-    }
+  &:hover {
+    background: ${shade(0.2, '#1B76C1')};
   }
 `;

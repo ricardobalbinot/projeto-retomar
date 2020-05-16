@@ -15,6 +15,15 @@ export const AnimationContainer = styled.div`
   }
 `;
 
+export const Title = styled.h1`
+  font-size: 48px;
+  color: #3a3a3a;
+  max-width: 450px;
+  line-height: 56px;
+
+  margin-top: 80px;
+`;
+
 export const ContainerAutocomplete = styled.div`
   display: flex;
   align-items: center;
@@ -22,31 +31,8 @@ export const ContainerAutocomplete = styled.div`
   margin: 0 20px;
 `;
 
-export const Header = styled.header`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 70px;
-
-  a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #a8a8b3;
-    transition: color 0.2s;
-
-    &:hover {
-      color: #666;
-    }
-  }
-
-  svg {
-    margin-right: 4px;
-  }
-`;
-
-export const Form = styled.form`
-  margin-top: 40px;
+export const FormAutocomplete = styled.form`
+  margin: 40px 0;
   max-width: 800px;
 
   display: flex;
