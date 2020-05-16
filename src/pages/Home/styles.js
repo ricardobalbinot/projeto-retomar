@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { shade } from 'polished';
 
 export const AnimationContainer = styled.div`
-  animation: slideDown 0.9s cubic-bezier(0.24, 0.92, 0.81, 1.01);
+  animation: slideDown 0.8s cubic-bezier(0.25, 0.84, 0.83, 0.87);
 
   @keyframes slideDown {
     from {
@@ -15,6 +15,28 @@ export const AnimationContainer = styled.div`
   }
 `;
 
+export const Header = styled.header`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #a8a8b3;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #666;
+    }
+  }
+
+  svg {
+    margin-right: 4px;
+  }
+`;
+
 export const Title = styled.h1`
   font-size: 48px;
   color: #3a3a3a;
@@ -22,6 +44,12 @@ export const Title = styled.h1`
   line-height: 56px;
 
   margin-top: 80px;
+`;
+
+export const Error = styled.span`
+  display: block;
+  color: #c53030;
+  margin-top: 8px;
 `;
 
 export const ContainerAutocomplete = styled.div`
@@ -32,7 +60,7 @@ export const ContainerAutocomplete = styled.div`
 `;
 
 export const FormAutocomplete = styled.form`
-  margin: 40px 0;
+  margin-top: 40px;
   max-width: 800px;
 
   display: flex;
@@ -42,6 +70,7 @@ export const FormAutocomplete = styled.form`
 export const Button = styled.button`
   width: 210px;
   height: 35px;
+  margin-top: 30px;
   background: #1b76c1;
   border-radius: 5px;
   border: 0;

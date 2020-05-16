@@ -6,7 +6,7 @@ export const AnimationContainer = styled.div`
 
   @keyframes slideUp {
     from {
-      transform: translateY(500px);
+      transform: translateY(200px);
     }
 
     to {
@@ -46,8 +46,14 @@ export const Title = styled.h1`
   margin-top: 80px;
 `;
 
+export const Error = styled.span`
+  display: block;
+  color: #c53030;
+  margin-top: 8px;
+`;
+
 export const FormAutocomplete = styled.form`
-  margin: 40px 0;
+  margin-top: 40px;
   max-width: 800px;
 
   display: flex;
