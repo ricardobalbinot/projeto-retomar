@@ -6,7 +6,7 @@ export const AnimationContainer = styled.div`
 
   @keyframes slideUp {
     from {
-      transform: translateY(500px);
+      transform: translateY(200px);
     }
 
     to {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
@@ -7,23 +7,37 @@ import Centered from '../../components/Centered';
 import {
   AnimationContainer,
   ContainerAutocomplete,
+  Header,
   Title,
+  Error,
   FormAutocomplete,
   Button,
 } from './styles';
 
 function Home() {
-  const [estado, setEstado] = useState('');
   const [cidade, setCidade] = useState('');
+  const [inputError, setInputError] = useState('');
+  const history = useHistory();
 
-  const estadosEscalonados = [{ id: 1, dsEstado: 'Paraná' }];
-  const cidadesEscalonadas = [
-    { id: 1, dsCidade: 'Curitiba' },
-    { id: 2, dsCidade: 'Dois Vizinhos' },
-  ];
+  const cidadesEscalonadas = [{ idEstado: 1, dsCidade: 'Rio de Janeiro, RJ' }];
+
+  function handleSelecionaCidade(event) {
+    event.preventDefault();
+
+    if (!cidade) {
+      setInputError('Informe a cidade desejada');
+    } else {
+      setInputError('');
+      history.push('/filter');
+    }
+  }
 
   return (
     <>
+      <Header>
+        <h2>(Logo)</h2>
+      </Header>
+
       <AnimationContainer>
         <Centered column>
           <Title>Projeto Retomar</Title>
@@ -37,22 +51,6 @@ function Home() {
           <FormAutocomplete>
             <ContainerAutocomplete>
               <Autocomplete
-                options={estadosEscalonados}
-                getOptionLabel={option => option.dsEstado}
-                style={{ width: 200 }}
-                id="estado"
-                debug
-                onChange={(event, newValue) => {
-                  setEstado(newValue);
-                }}
-                renderInput={params => (
-                  <TextField {...params} label="Estado" margin="normal" />
-                )}
-              />
-            </ContainerAutocomplete>
-
-            <ContainerAutocomplete>
-              <Autocomplete
                 options={cidadesEscalonadas}
                 getOptionLabel={option => option.dsCidade}
                 style={{ width: 400 }}
@@ -62,15 +60,19 @@ function Home() {
                   setCidade(newValue);
                 }}
                 renderInput={params => (
-                  <TextField {...params} label="Cidade" margin="normal" />
+                  <TextField
+                    {...params}
+                    label="Digite sua cidade"
+                    margin="normal"
+                  />
                 )}
               />
             </ContainerAutocomplete>
           </FormAutocomplete>
 
-          <Link to="/filter">
-            <Button type="submit">Continuar</Button>
-          </Link>
+          {inputError && <Error>{inputError}</Error>}
+
+          <Button onClick={handleSelecionaCidade}>Próximo</Button>
         </Centered>
       </AnimationContainer>
     </>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
@@ -8,46 +8,52 @@ import {
   AnimationContainer,
   Header,
   Title,
+  Error,
   FormAutocomplete,
-  Input,
   Button,
   ContainerAutocomplete,
 } from './styles';
 
 function FilterPage() {
-  const [estabelecimento, setEstabelecimento] = useState('');
   const [bairro, setBairro] = useState('');
-  const [categoria, setCategoria] = useState('');
+  const [inputError, setInputError] = useState('');
+  const history = useHistory();
 
-  const bairrosEscalonados = [{ id: 1, dsBairro: 'Centro' }];
-  const categoriasEstabelecimentos = [
-    { id: 1, dsCategoria: 'Essenciais' },
-    { id: 2, dsCategoria: 'Alimentação' },
-    { id: 3, dsCategoria: 'Saúde' },
-    { id: 4, dsCategoria: 'Beleza e Corpo' },
-    { id: 5, dsCategoria: 'Entretenimento' },
-    { id: 6, dsCategoria: 'Lojas' },
-    { id: 7, dsCategoria: 'Religioso' },
-    { id: 8, dsCategoria: 'Serviços' },
-  ];
+  const bairrosEscalonados = [{ id: 1, dsBairro: 'Catete' }];
+
+  function handleSelecionaBairro(event) {
+    event.preventDefault();
+
+    if (!bairro) {
+      setInputError('Informe o bairro desejado');
+    } else {
+      setInputError('');
+      history.push('/horarios');
+    }
+  }
 
   return (
     <>
-      <AnimationContainer>
-        <Header>
-          <h2>(Logo)</h2>
-          <Link to="/">Trocar cidade</Link>
-        </Header>
+      <Header>
+        <h2>(Logo)</h2>
+        <Link to="/">Trocar cidade</Link>
+      </Header>
 
+      <AnimationContainer>
         <Centered column>
           <Title>Projeto Retomar</Title>
+
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
 
           <FormAutocomplete>
             <ContainerAutocomplete>
               <Autocomplete
                 options={bairrosEscalonados}
                 getOptionLabel={option => option.dsBairro}
-                style={{ width: 200 }}
+                style={{ width: 400 }}
                 id="bairro"
                 debug
                 onChange={(event, newValue) => {
@@ -58,32 +64,11 @@ function FilterPage() {
                 )}
               />
             </ContainerAutocomplete>
-            <ContainerAutocomplete>
-              <Autocomplete
-                options={categoriasEstabelecimentos}
-                getOptionLabel={option => option.dsCategoria}
-                style={{ width: 200 }}
-                id="categorias"
-                debug
-                onChange={(event, newValue) => {
-                  setCategoria(newValue);
-                }}
-                renderInput={params => (
-                  <TextField {...params} label="Categoria" margin="normal" />
-                )}
-              />
-            </ContainerAutocomplete>
           </FormAutocomplete>
 
-          <Input
-            value={estabelecimento}
-            onChange={e => setEstabelecimento(e.target.value)}
-            placeholder="Digite o nome do estabelecimento"
-          />
+          {inputError && <Error>{inputError}</Error>}
 
-          <Link to="/horarios">
-            <Button type="submit">Consultar horários</Button>
-          </Link>
+          <Button onClick={handleSelecionaBairro}>Próximo</Button>
         </Centered>
       </AnimationContainer>
     </>
