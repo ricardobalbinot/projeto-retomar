@@ -18,6 +18,24 @@ import {
 import Logo from '../../images/retomar-svg.svg';
 
 const darkTheme = createMuiTheme({
+  overrides: {
+    MuiFormLabel: {
+      focused: true,
+      root: {
+        '&$focused': {
+          color: '#00c677',
+          borderBottom: '#00c677'
+        }
+      }
+    },
+    MuiInput: {
+      underline: {
+        '&$focused': {
+          borderBottom: '1px solid #00c677'
+        }
+      }
+    }
+  },
   palette: {
     type: 'dark',
   },
@@ -45,12 +63,12 @@ function Home() {
   return (
     <>
       <Header>
-        <img src={Logo} width="150" alt="Projeto Retomar" />
+        <img src={Logo} width='150' alt='Projeto Retomar' />
       </Header>
 
       <BlockItems>
         <div>
-          <span className="circle">•</span>
+          <span className='circle'>•</span>
           <span>
             Confira o horário de funcionamento dos estabelecimentos da sua
             cidade
@@ -68,7 +86,7 @@ function Home() {
                 options={cidadesEscalonadas}
                 getOptionLabel={option => option.dsCidade}
                 style={{ width: 400 }}
-                id="cidade"
+                id='cidade'
                 autoHighlight
                 value={cidade}
                 onChange={(event, newValue) => {
@@ -77,8 +95,8 @@ function Home() {
                 renderInput={params => (
                   <TextField
                     {...params}
-                    label="Digite sua cidade"
-                    margin="normal"
+                    label='Selecione sua cidade'
+                    margin='normal'
                   />
                 )}
               />

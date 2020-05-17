@@ -66,11 +66,11 @@ export const BlockItems = styled.ul`
       display: flex;
       align-items: center;
       text-decoration: none;
-      color: #777777;
+      color: #adadad;
       transition: color 0.2s;
 
       &:hover {
-        color: #666;
+        color: #d8d8d8;
       }
     }
   }
@@ -162,11 +162,11 @@ export const LinkVoltar = styled.div`
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: #777777;
+    color: #adadad;
     transition: color 0.2s;
 
     &:hover {
-      color: #666;
+      color: #d8d8d8;
     }
   }
 `;

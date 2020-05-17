@@ -21,6 +21,24 @@ import Logo from '../../images/retomar-svg.svg';
 import scheduleJSON from '../../schedule/schedule.json';
 
 const darkTheme = createMuiTheme({
+  overrides: {
+    MuiFormLabel: {
+      focused: true,
+      root: {
+        '&$focused': {
+          color: '#00c677',
+          borderBottom: '#00c677'
+        }
+      }
+    },
+    MuiInput: {
+      underline: {
+        '&$focused': {
+          borderBottom: '1px solid #00c677'
+        }
+      }
+    }
+  },
   palette: {
     type: 'dark',
   },
