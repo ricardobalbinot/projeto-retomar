@@ -80,14 +80,6 @@ export const EstabelecimentosList = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   align-content: flex-start;
-
-  /* div {
-    width: 450px;
-    margin: 10px;
-    height: 50px;
-    background: #fff;
-    border-radius: 10px;
-  } */
 `;
 
 export const Estabelecimentos = styled.div`
