@@ -133,7 +133,8 @@ function Horarios() {
             return false;
           });
         }
-
+        const manha = formatDaysSchedule(store.schedule, 0);
+        const tarde = formatDaysSchedule(store.schedule, 1);
         if (inFilter) {
           return (
             <Estabelecimentos key={store.storeId}>
@@ -148,6 +149,7 @@ function Horarios() {
                 <p>{categoriasText}</p>
                 <div className="funcionamento">
                   <p>HORÁRIO DE FUNCIONAMENTO</p>
+                  {manha && (
                   <div>
                     <p>
                       {formatDaysSchedule(store.schedule, 0)}
@@ -155,13 +157,17 @@ function Horarios() {
                     </p>
                     <span>das 8:00 às 12:00</span>
                   </div>
+                  )}
+                  {tarde && (
                   <div>
+
                     <p>
-                      {formatDaysSchedule(store.schedule, 1)}
+                      {tarde}
                       :
                     </p>
                     <span>das 13:30 às 18:00</span>
                   </div>
+                  )}
                   {/* <div>
               <p>Todos os dias:</p>
               <span>das 18:00 às 23:59</span>
