@@ -45,7 +45,9 @@ function Horarios() {
   return (
     <>
       <Header>
-        <img src={Logo} width="150" alt="Projeto Retomar" />
+        <Link to="/">
+          <img src={Logo} width="150" alt="Projeto Retomar" />
+        </Link>
       </Header>
 
       <AnimationContainer>
