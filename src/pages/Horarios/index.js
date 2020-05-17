@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import Avatar from '@material-ui/core/Avatar';
+import StoreIcon from '@material-ui/icons/Store';
 
 import {
   AnimationContainer,
@@ -12,6 +14,7 @@ import {
   TitleCategoria,
   ContainerAutocomplete,
   EstabelecimentosList,
+  Estabelecimentos,
 } from './styles';
 
 import Logo from '../../images/retomar-svg.svg';
@@ -86,8 +89,58 @@ function Horarios() {
           </ContainerAutocomplete>
 
           <EstabelecimentosList>
-            <div className="teste" />
-            <div className="teste" />
+            <Estabelecimentos>
+              <div className="iconeCategoria">
+                <Avatar>
+                  <StoreIcon />
+                </Avatar>
+              </div>
+              <div className="estabelecimento">
+                <strong>No Ponto Supermercados</strong>
+                <p>Alimentação</p>
+                <div className="funcionamento">
+                  <p>HORÁRIO DE FUNCIONAMENTO</p>
+                  <div>
+                    <p>Segunda-feira, quarta-feira, sexta-feira:</p>
+                    <span>das 8:00 às 12:00</span>
+                  </div>
+                  <div>
+                    <p>Terca-feira e quinta-feira:</p>
+                    <span>das 13:30 às 18:00</span>
+                  </div>
+                  <div>
+                    <p>Todos os dias:</p>
+                    <span>das 18:00 às 23:59</span>
+                  </div>
+                </div>
+              </div>
+            </Estabelecimentos>
+            <Estabelecimentos>
+              <div className="iconeCategoria">
+                <Avatar>
+                  <StoreIcon />
+                </Avatar>
+              </div>
+              <div className="estabelecimento">
+                <strong>Altas Horas Bebidas</strong>
+                <p>Essenciais</p>
+                <div className="funcionamento">
+                  <p>HORÁRIO DE FUNCIONAMENTO</p>
+                  <div>
+                    <p>Segunda-feira, quarta-feira, sexta-feira:</p>
+                    <span>das 8:00 às 12:00</span>
+                  </div>
+                  <div>
+                    <p>Terca-feira e quinta-feira:</p>
+                    <span>das 13:30 às 18:00</span>
+                  </div>
+                  <div>
+                    <p>Todos os dias:</p>
+                    <span>das 18:00 às 23:59</span>
+                  </div>
+                </div>
+              </div>
+            </Estabelecimentos>
           </EstabelecimentosList>
         </ContainerHorarios>
       </AnimationContainer>

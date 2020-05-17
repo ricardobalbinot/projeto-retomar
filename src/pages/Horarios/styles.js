@@ -81,11 +81,57 @@ export const EstabelecimentosList = styled.div`
   flex-wrap: wrap;
   align-content: flex-start;
 
-  div {
+  /* div {
     width: 450px;
     margin: 10px;
     height: 50px;
     background: #fff;
     border-radius: 10px;
+  } */
+`;
+
+export const Estabelecimentos = styled.div`
+  display: flex;
+  width: 450px;
+  margin: 10px;
+  background: #fff;
+  border-radius: 10px;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: translateX(10px);
+  }
+
+  .iconeCategoria {
+    padding: 20px;
+  }
+
+  .estabelecimento {
+    padding: 15px;
+    flex: 1;
+
+    strong {
+      font-size: 17px;
+      color: #3d3d4d;
+    }
+
+    p {
+      font-size: 14px;
+      color: #a8a8b3;
+      margin-top: 4px;
+    }
+
+    .funcionamento {
+      margin-top: 20px;
+
+      div {
+        margin-top: 5px;
+      }
+
+      span {
+        font-size: 14px;
+        color: #05a200;
+      }
+    }
   }
 `;
