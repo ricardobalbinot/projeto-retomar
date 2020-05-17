@@ -14,82 +14,73 @@ export const AnimationContainer = styled.div`
   }
 `;
 
-export const Header = styled.header`
+export const Header = styled.div`
   display: flex;
-  align-items: center;
-  padding: 20px 0 30px;
+  padding: 20px 0;
   height: 100px;
+
+  @media (max-width: 770px) {
+    & {
+      justify-content: center;
+    }
+  }
 `;
 
-export const BlockItems = styled.div`
+export const ItemGuia = styled.div`
   display: flex;
+  align-items: center;
+  margin-bottom: 15px;
 
   div {
     display: flex;
     flex-direction: column;
-    margin-right: 50px;
 
     span,
     strong {
       font-size: 18px;
     }
-
-    a {
-      font-size: 15px;
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      color: #e6e6e6;
-      transition: color 0.2s;
-
-      &:hover {
-        color: #fff;
-      }
-    }
   }
 
   .circle-green {
     color: #2dff73;
-    font-size: 25px;
+    font-size: 50px;
     margin-right: 15px;
+  }
+
+  a {
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #e6e6e6;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #fff;
+    }
   }
 `;
 
-export const ContainerHorarios = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  max-width: 960px;
-  margin: 40px auto 0;
-`;
-
 export const TitleCategoria = styled.h3`
-  max-width: 450px;
-  line-height: 56px;
-  margin: 10px;
-`;
-
-export const ContainerAutocomplete = styled.div`
-  margin: 10px;
+  margin-top: 40px;
 `;
 
 export const EstabelecimentosList = styled.div`
   margin-top: 20px;
 
   display: flex;
-  flex: 1;
   flex-direction: row;
   flex-wrap: wrap;
-  align-content: flex-start;
 `;
 
 export const Estabelecimentos = styled.div`
   display: flex;
-  width: 450px;
+
+  flex: 1;
+  min-height: 225px;
   margin: 10px;
   background: #fff;
   border-radius: 10px;
-  transition: transform 0.2s;
 
   .iconeCategoria {
     padding: 20px;

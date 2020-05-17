@@ -23,11 +23,6 @@ const GlobalStyle = createGlobalStyle`
     color: #fff;
   }
 
-  #root {
-    margin: 0;
-    padding: 0 150px;
-  }
-
   button {
     cursor: pointer;
   }

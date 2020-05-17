@@ -15,20 +15,23 @@ export const AnimationContainer = styled.div`
   }
 `;
 
-export const Header = styled.header`
+export const Header = styled.div`
   display: flex;
-  align-items: center;
-  padding: 20px 0 30px;
+  padding: 20px 0;
   height: 100px;
+
+  @media (max-width: 770px) {
+    & {
+      justify-content: center;
+    }
+  }
 `;
 
 export const BlockItems = styled.div`
-  display: flex;
-  flex-direction: column;
+  align-items: center;
 
   div {
     display: flex;
-    flex-direction: row;
     align-items: center;
 
     span,
@@ -38,7 +41,7 @@ export const BlockItems = styled.div`
 
     .circle {
       color: #fff;
-      font-size: 45px;
+      font-size: 65px;
       margin-right: 15px;
     }
   }
@@ -46,7 +49,6 @@ export const BlockItems = styled.div`
 
 export const Title = styled.h1`
   font-size: 32px;
-  line-height: 56px;
   margin-top: 80px;
 
   animation: slideDown 0.3s cubic-bezier(0.25, 0.84, 0.83, 0.87);
@@ -63,7 +65,6 @@ export const Title = styled.h1`
 `;
 
 export const Error = styled.span`
-  display: block;
   color: #c53030;
   margin-top: 8px;
 `;
@@ -72,16 +73,10 @@ export const ContainerAutocomplete = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 20px;
-`;
-
-export const FormAutocomplete = styled.form`
-  display: flex;
-  max-width: 800px;
 `;
 
 export const Button = styled.button`
-  width: 210px;
+  width: 100%;
   height: 60px;
   margin-top: 30px;
   background: #00c677;
