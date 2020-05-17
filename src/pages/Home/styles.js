@@ -18,32 +18,49 @@ export const AnimationContainer = styled.div`
 export const Header = styled.header`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  padding: 20px 0 30px;
+  height: 100px;
+`;
 
-  a {
+export const BlockItems = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  div {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    text-decoration: none;
-    color: #a8a8b3;
-    transition: color 0.2s;
 
-    &:hover {
-      color: #666;
+    span,
+    strong {
+      font-size: 20px;
     }
-  }
 
-  svg {
-    margin-right: 4px;
+    .circle {
+      color: #fff;
+      font-size: 45px;
+      margin-right: 15px;
+    }
   }
 `;
 
 export const Title = styled.h1`
-  font-size: 48px;
-  color: #3a3a3a;
+  font-size: 32px;
   max-width: 450px;
   line-height: 56px;
-
   margin-top: 80px;
+
+  animation: slideDown 0.3s cubic-bezier(0.25, 0.84, 0.83, 0.87);
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(20px);
+    }
+
+    to {
+      transform: translateY(0);
+    }
+  }
 `;
 
 export const Error = styled.span`
@@ -60,18 +77,15 @@ export const ContainerAutocomplete = styled.div`
 `;
 
 export const FormAutocomplete = styled.form`
-  margin-top: 40px;
-  max-width: 800px;
-
   display: flex;
-  align-items: center;
+  max-width: 800px;
 `;
 
 export const Button = styled.button`
   width: 210px;
-  height: 35px;
+  height: 60px;
   margin-top: 30px;
-  background: #1b76c1;
+  background: #00c677;
   border-radius: 5px;
   border: 0;
   color: #fff;
@@ -79,6 +93,6 @@ export const Button = styled.button`
   transition: background-color 0.2s;
 
   &:hover {
-    background: ${shade(0.2, '#1B76C1')};
+    background: ${shade(0.2, '#00C677')};
   }
 `;

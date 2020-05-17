@@ -2,22 +2,32 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 import Centered from '../../components/Centered';
 import {
-  AnimationContainer,
   ContainerAutocomplete,
   Header,
+  BlockItems,
   Title,
   Error,
   FormAutocomplete,
   Button,
 } from './styles';
 
+import Logo from '../../images/retomar-svg.svg';
+
+const darkTheme = createMuiTheme({
+  palette: {
+    type: 'dark',
+  },
+});
+
 function Home() {
   const [cidade, setCidade] = useState('');
   const [inputError, setInputError] = useState('');
   const history = useHistory();
+  // const classes = useStyles();
 
   const cidadesEscalonadas = [{ idEstado: 1, dsCidade: 'Rio de Janeiro, RJ' }];
 
@@ -28,34 +38,39 @@ function Home() {
       setInputError('Informe a cidade desejada');
     } else {
       setInputError('');
-      history.push('/filter');
+      history.push('/bairro');
     }
   }
 
   return (
     <>
       <Header>
-        <h2>(Logo)</h2>
+        <img src={Logo} width="150" alt="Projeto Retomar" />
       </Header>
 
-      <AnimationContainer>
-        <Centered column>
-          <Title>Projeto Retomar</Title>
+      <BlockItems>
+        <div>
+          <span className="circle">•</span>
+          <span>
+            Confira o horário de funcionamento dos estabelecimentos da sua
+            cidade
+          </span>
+        </div>
+      </BlockItems>
 
-          <p>In est ante in nibh mauris cursus mattis.</p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
+      <Centered column>
+        <Title>Qual sua cidade?</Title>
 
-          <FormAutocomplete>
-            <ContainerAutocomplete>
+        <FormAutocomplete>
+          <ContainerAutocomplete>
+            <ThemeProvider theme={darkTheme}>
               <Autocomplete
                 options={cidadesEscalonadas}
                 getOptionLabel={option => option.dsCidade}
                 style={{ width: 400 }}
                 id="cidade"
-                debug
+                autoHighlight
+                value={cidade}
                 onChange={(event, newValue) => {
                   setCidade(newValue);
                 }}
@@ -67,14 +82,14 @@ function Home() {
                   />
                 )}
               />
-            </ContainerAutocomplete>
-          </FormAutocomplete>
+            </ThemeProvider>
+          </ContainerAutocomplete>
+        </FormAutocomplete>
 
-          {inputError && <Error>{inputError}</Error>}
+        {inputError && <Error>{inputError}</Error>}
 
-          <Button onClick={handleSelecionaCidade}>Próximo</Button>
-        </Centered>
-      </AnimationContainer>
+        <Button onClick={handleSelecionaCidade}>Próximo</Button>
+      </Centered>
     </>
   );
 }

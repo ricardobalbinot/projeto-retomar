@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import { shade } from 'polished';
 
 export const AnimationContainer = styled.div`
-  animation: slideUp 0.8s cubic-bezier(0.25, 0.84, 0.83, 0.87);
+  animation: slideUp 0.6s cubic-bezier(0.31, 0.77, 0.78, 0.95);
 
   @keyframes slideUp {
     from {
@@ -18,68 +17,75 @@ export const AnimationContainer = styled.div`
 export const Header = styled.header`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  padding: 20px 0 30px;
+  height: 100px;
+`;
 
-  a {
+export const BlockItems = styled.div`
+  display: flex;
+
+  div {
     display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #a8a8b3;
-    transition: color 0.2s;
+    flex-direction: column;
+    margin-right: 50px;
 
-    &:hover {
-      color: #666;
+    span,
+    strong {
+      font-size: 18px;
+    }
+
+    a {
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #a8a8b3;
+      transition: color 0.2s;
+
+      &:hover {
+        color: #666;
+      }
     }
   }
 
-  svg {
-    margin-right: 4px;
+  .circle-green {
+    color: #2dff73;
+    font-size: 25px;
+    margin-right: 15px;
   }
 `;
 
-export const Title = styled.h1`
-  font-size: 48px;
-  color: #3a3a3a;
+export const ContainerHorarios = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: 960px;
+  margin: 40px auto 0;
+`;
+
+export const TitleCategoria = styled.h3`
   max-width: 450px;
   line-height: 56px;
-
-  margin-top: 80px;
 `;
 
-export const Form = styled.form`
-  margin-top: 40px;
+export const ContainerAutocomplete = styled.div`
+  margin: 10px;
+`;
+
+export const EstabelecimentosList = styled.div`
+  margin-top: 20px;
 
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex: 1;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
 
-  input {
-    width: 500px;
-    height: 70px;
-    padding: 0 24px;
-    border: 0;
-    border-radius: 5px 0px 0px 5px;
-    color: #3a3a3a;
-    border: 2px solid #fff;
-    border-right: 0;
-
-    &::placeholder {
-      color: #3a3a3a;
-    }
-  }
-
-  button {
-    width: 210px;
-    height: 70px;
-    background: #04d361;
-    border-radius: 0px 5px 5px 0px;
-    border: 0;
-    color: #fff;
-    font-weight: bold;
-    transition: background-color 0.2s;
-
-    &:hover {
-      background: ${shade(0.2, '#04d361')};
-    }
+  div {
+    width: 450px;
+    margin: 10px;
+    height: 50px;
+    background: #fff;
+    border-radius: 10px;
   }
 `;
