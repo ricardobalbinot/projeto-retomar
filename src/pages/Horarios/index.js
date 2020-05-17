@@ -31,20 +31,39 @@ function Horarios() {
   const [categoria, setCategoria] = useState('');
 
   const categoriasEstabelecimentos = [
-    { idCategoria: 1, dsCategoria: 'Essenciais' },
-    { idCategoria: 2, dsCategoria: 'Saúde' },
-    { idCategoria: 3, dsCategoria: 'Alimentação' },
-    { idCategoria: 4, dsCategoria: 'Entretenimento' },
-    { idCategoria: 5, dsCategoria: 'Beleza e Corpo' },
-    { idCategoria: 6, dsCategoria: 'Loja' },
-    { idCategoria: 7, dsCategoria: 'Serviços' },
-    { idCategoria: 8, dsCategoria: 'Religioso' },
+    { idCategoria: 1, dsCategoria: 'Essenciais', correspondingTypes: ['atm', 'bank', 'hospital', 'pharmacy', 'supermarket'] },
+    { idCategoria: 2, dsCategoria: 'Saúde', correspondingTypes: ['physiotherapist', 'hospital', 'doctor', 'dentist', 'drugstore', 'pharmacy'] },
+    { idCategoria: 3, dsCategoria: 'Alimentação', correspondingTypes: ['supermarket', 'restaurant', 'meal_takeaway', 'meal_delivery', 'bakery', 'bar', 'cafe'] },
+    { idCategoria: 4, dsCategoria: 'Entretenimento', correspondingTypes: ['zoo', 'tourist_attraction', 'stadium', 'rv_park', 'park', 'night_club', 'museum', 'movie_theater', 'movie_rental', 'library', 'casino', 'campground', 'bowling_alley', 'bar', 'amusement_park', 'aquarium', 'art_gallery'] },
+    { idCategoria: 5, dsCategoria: 'Beleza e Corpo', correspondingTypes: ['hair_care', 'spa', 'gym', 'beauty_salon'] },
+    { idCategoria: 6, dsCategoria: 'Loja', correspondingTypes: ['store', 'pet_store', 'shopping_mall', 'shoe_store', 'liquor_store', 'jewelry_store', 'home_goods_store', 'hardware_store', 'furniture_store', 'gas_station', 'florist', 'electronics_store', 'department_store', 'convenience_store', 'clothing_store', 'car_dealer', 'book_store', 'bicycle_store'] },
+    { idCategoria: 7, dsCategoria: 'Serviços', correspondingTypes: ['veterinary_care', 'university', 'travel_agency', 'transit_station', 'storage', 'school', 'secondary_school', 'roofing_contractor', 'real_estate_agency', 'primary_school', 'post_office', 'police', 'plumber', 'parking', 'painter', 'moving_company', 'movie_rental', 'atm', 'bank', 'lodging', 'locksmith', 'local_government_office', 'lawyer', 'laundry', 'insurance_agency', 'funeral_home', 'fire_station', 'embassy', 'electrician', 'courthouse', 'city_hall', 'cemetery', 'accounting', 'car_rental', 'car_repair', 'car_wash'] },
+    { idCategoria: 8, dsCategoria: 'Religioso', correspondingTypes: ['synagogue', 'church', 'hindu_temple', 'mosque'] },
+    { idCategoria: 9, dsCategoria: 'Transporte', correspondingTypes: ['train_station', 'taxi_stand', 'subway_station', 'light_rail_station', 'airport', 'bus_station'] },
+
   ];
 
   function handleSelecionaCategoria(newValue) {
     setCategoria(newValue);
     console.log(`Escolheu ${categoria.dsCategoria}`);
     // Iterar JSON filtrando categoria
+  }
+
+  function translateCategorias(types) {
+    const categorias = [];
+
+    categoriasEstabelecimentos.map((categoriaActual) => {
+      categoriaActual.correspondingTypes.map((correspondingType) => {
+        if (types.includes(correspondingType) && !categorias.includes(categoriaActual)) {
+          categorias.push(categoriaActual);
+          return categorias;
+        }
+        return categorias;
+      });
+      return categorias;
+    });
+
+    return categorias.map((m, index) => (categorias.length - 1 !== index ? `${m.dsCategoria}, ` : m.dsCategoria));
   }
 
   function formatDaysSchedule(store, turno) {
@@ -101,7 +120,7 @@ function Horarios() {
           </div>
           <div className="estabelecimento">
             <strong>{store.store}</strong>
-            <p>Alimentação</p>
+            <p>{translateCategorias(store.types)}</p>
             <div className="funcionamento">
               <p>HORÁRIO DE FUNCIONAMENTO</p>
               <div>
