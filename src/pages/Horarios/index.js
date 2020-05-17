@@ -129,6 +129,7 @@ function Horarios() {
           <div className="estabelecimento">
             <strong>{formatStoreName(store.store)}</strong>
             <p>{translateCategorias(store.types)}</p>
+            <p>{store.vicinity}</p>
             <div className="funcionamento">
               <p className="titleFuncionamento">HORÁRIO DE FUNCIONAMENTO</p>
               <div>
