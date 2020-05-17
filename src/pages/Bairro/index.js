@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 import Centered from '../../components/Centered';
 import {
-  ContainerAutocomplete,
   Header,
   BlockItems,
   Title,
   Error,
   FormAutocomplete,
   Button,
+  LinkVoltar,
+  ContainerAutocomplete,
 } from './styles';
 
 import Logo from '../../images/retomar-svg.svg';
@@ -23,22 +24,21 @@ const darkTheme = createMuiTheme({
   },
 });
 
-function Home() {
-  const [cidade, setCidade] = useState('');
+function Bairro() {
+  const [bairro, setBairro] = useState('');
   const [inputError, setInputError] = useState('');
   const history = useHistory();
-  // const classes = useStyles();
 
-  const cidadesEscalonadas = [{ idEstado: 1, dsCidade: 'Rio de Janeiro, RJ' }];
+  const bairrosEscalonados = [{ id: 1, dsBairro: 'Catete' }];
 
-  function handleSelecionaCidade(event) {
+  function handleSelecionaBairro(event) {
     event.preventDefault();
 
-    if (!cidade) {
-      setInputError('Informe a cidade desejada');
+    if (!bairro) {
+      setInputError('Informe o bairro desejado');
     } else {
       setInputError('');
-      history.push('/bairro');
+      history.push('/horarios');
     }
   }
 
@@ -56,28 +56,34 @@ function Home() {
             cidade
           </span>
         </div>
+        <div>
+          <span className="circle-green">•</span>
+          <div>
+            <strong>Rio de Janeiro</strong>
+            <Link to="/">Alterar cidade</Link>
+          </div>
+        </div>
       </BlockItems>
 
       <Centered column>
-        <Title>Qual sua cidade?</Title>
+        <Title>Qual bairro deseja pesquisar?</Title>
 
         <FormAutocomplete>
           <ContainerAutocomplete>
             <ThemeProvider theme={darkTheme}>
               <Autocomplete
-                options={cidadesEscalonadas}
-                getOptionLabel={option => option.dsCidade}
+                options={bairrosEscalonados}
+                getOptionLabel={option => option.dsBairro}
                 style={{ width: 400 }}
-                id="cidade"
-                autoHighlight
-                value={cidade}
+                id="bairro"
+                debug
                 onChange={(event, newValue) => {
-                  setCidade(newValue);
+                  setBairro(newValue);
                 }}
                 renderInput={params => (
                   <TextField
                     {...params}
-                    label="Digite sua cidade"
+                    label="Digite o bairro"
                     margin="normal"
                   />
                 )}
@@ -88,10 +94,14 @@ function Home() {
 
         {inputError && <Error>{inputError}</Error>}
 
-        <Button onClick={handleSelecionaCidade}>Próximo</Button>
+        <Button onClick={handleSelecionaBairro}>Próximo</Button>
+
+        <LinkVoltar>
+          <Link to="/">Voltar</Link>
+        </LinkVoltar>
       </Centered>
     </>
   );
 }
 
-export default Home;
+export default Bairro;
