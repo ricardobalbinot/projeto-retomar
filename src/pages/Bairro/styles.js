@@ -66,7 +66,7 @@ export const BlockItems = styled.ul`
       display: flex;
       align-items: center;
       text-decoration: none;
-      color: #a8a8b3;
+      color: #777777;
       transition: color 0.2s;
 
       &:hover {
@@ -162,7 +162,7 @@ export const LinkVoltar = styled.div`
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: #a8a8b3;
+    color: #777777;
     transition: color 0.2s;
 
     &:hover {

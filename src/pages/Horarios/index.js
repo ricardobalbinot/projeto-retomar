@@ -130,7 +130,7 @@ function Horarios() {
             <strong>{formatStoreName(store.store)}</strong>
             <p>{translateCategorias(store.types)}</p>
             <div className="funcionamento">
-              <p>HORÁRIO DE FUNCIONAMENTO</p>
+              <p className="titleFuncionamento">HORÁRIO DE FUNCIONAMENTO</p>
               <div>
                 <p>
                   {formatDaysSchedule(store.schedule, 0)}
