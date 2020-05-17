@@ -45,7 +45,6 @@ function Horarios() {
 
   function handleSelecionaCategoria(newValue) {
     setCategoria(newValue);
-    console.log(`Escolheu ${categoria.dsCategoria}`);
     // Iterar JSON filtrando categoria
   }
 
@@ -63,7 +62,7 @@ function Horarios() {
       return categorias;
     });
 
-    return categorias.map((m, index) => (categorias.length - 1 !== index ? `${m.dsCategoria}, ` : m.dsCategoria));
+    return categorias;
   }
 
   function formatDaysSchedule(store, turno) {
@@ -111,40 +110,60 @@ function Horarios() {
 
   function buildEstabelecimentosList() {
     return (
-      scheduleJSON.map((store) => (
-        <Estabelecimentos key={store.storeId}>
-          <div className="iconeCategoria">
-            <Avatar>
-              <StoreIcon />
-            </Avatar>
-          </div>
-          <div className="estabelecimento">
-            <strong>{store.store}</strong>
-            <p>{translateCategorias(store.types)}</p>
-            <div className="funcionamento">
-              <p>HORÁRIO DE FUNCIONAMENTO</p>
-              <div>
-                <p>
-                  {formatDaysSchedule(store.schedule, 0)}
-                  :
-                </p>
-                <span>das 8:00 às 12:00</span>
+      scheduleJSON.map((store) => {
+        const categoriasStore = translateCategorias(store.types);
+        const categoriasText = categoriasStore.map((m, index) => (categoriasStore.length - 1 !== index ? `${m.dsCategoria}, ` : m.dsCategoria));
+        let inFilter = false;
+        if (categoria === undefined || categoria === null || categoria === '') {
+          inFilter = true;
+        } else {
+          categoriasStore.map((cat) => {
+            if (cat.idCategoria === categoria.idCategoria) {
+              inFilter = true;
+              return true;
+            }
+            return false;
+          });
+        }
+
+        if (inFilter) {
+          return (
+            <Estabelecimentos key={store.storeId}>
+              <div className="iconeCategoria">
+                <Avatar>
+                  <StoreIcon />
+                </Avatar>
               </div>
-              <div>
-                <p>
-                  {formatDaysSchedule(store.schedule, 1)}
-                  :
-                </p>
-                <span>das 13:30 às 18:00</span>
-              </div>
-              {/* <div>
+              <div className="estabelecimento">
+                <strong>{store.store}</strong>
+                <p>{categoriasText}</p>
+                <div className="funcionamento">
+                  <p>HORÁRIO DE FUNCIONAMENTO</p>
+                  <div>
+                    <p>
+                      {formatDaysSchedule(store.schedule, 0)}
+                      :
+                    </p>
+                    <span>das 8:00 às 12:00</span>
+                  </div>
+                  <div>
+                    <p>
+                      {formatDaysSchedule(store.schedule, 1)}
+                      :
+                    </p>
+                    <span>das 13:30 às 18:00</span>
+                  </div>
+                  {/* <div>
               <p>Todos os dias:</p>
               <span>das 18:00 às 23:59</span>
             </div> */}
-            </div>
-          </div>
-        </Estabelecimentos>
-      ))
+                </div>
+              </div>
+            </Estabelecimentos>
+          );
+        }
+        return <div />;
+      })
     );
   }
 
@@ -171,13 +190,14 @@ function Horarios() {
         </BlockItems>
 
         <ContainerHorarios>
-          <TitleCategoria>Selecione uma categoria:</TitleCategoria>
+          <TitleCategoria>Filtre por uma categoria:</TitleCategoria>
 
           <ContainerAutocomplete>
             <ThemeProvider theme={darkTheme}>
               <Autocomplete
                 options={categoriasEstabelecimentos}
                 getOptionLabel={option => option.dsCategoria}
+                getOptionSelected={option => option.dsCategoria}
                 style={{ width: 300 }}
                 id="cidade"
                 debug
