@@ -88,7 +88,6 @@ export const BlockItems = styled.ul`
 
 export const Title = styled.h1`
   font-size: 32px;
-  max-width: 450px;
   line-height: 56px;
 
   margin-top: 17px;
