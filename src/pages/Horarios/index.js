@@ -121,10 +121,7 @@ function Horarios() {
       openDays[openDays.length - 1] = `e ${openDays[openDays.length - 1]}`;
     }
     if (openDays.length === 2) {
-      openDays.map(d => {
-        strDays += `${d} `;
-        return strDays;
-      });
+      strDays = `${openDays[0]} ${openDays[1]}`;
       return strDays.charAt(0).toUpperCase() + strDays.slice(1);
     }
     openDays.map((d, index) => {
@@ -168,23 +165,23 @@ function Horarios() {
                 <div className="funcionamento">
                   <p>HORÁRIO DE FUNCIONAMENTO</p>
                   {manha && (
-                  <div>
-                    <p>
-                      {formatDaysSchedule(store.schedule, 0)}
-                      :
-                    </p>
-                    <span>das 8:00 às 12:00</span>
-                  </div>
+                    <div>
+                      <p>
+                        {manha}
+                        :
+                      </p>
+                      <span>das 8:00 às 12:00</span>
+                    </div>
                   )}
                   {tarde && (
-                  <div>
+                    <div>
 
-                    <p>
-                      {tarde}
-                      :
-                    </p>
-                    <span>das 13:30 às 18:00</span>
-                  </div>
+                      <p>
+                        {tarde}
+                        :
+                      </p>
+                      <span>das 13:30 às 18:00</span>
+                    </div>
                   )}
                   {/* <div>
               <p>Todos os dias:</p>
