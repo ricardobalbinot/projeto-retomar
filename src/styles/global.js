@@ -1,7 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 
-import BackgroundImage from '../images/background.png';
-
 const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
@@ -11,8 +9,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: #015C91  url(${BackgroundImage}) no-repeat ;
-    background-size: 100vw 100vh;
+    background: #015C91;
     -webkit-font-smoothing: antialiased;
   }
 

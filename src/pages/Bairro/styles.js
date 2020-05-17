@@ -15,20 +15,14 @@ export const AnimationContainer = styled.div`
   }
 `;
 
-export const Header = styled.header`
-  display: flex;
-  align-items: center;
-  padding: 20px 0 30px;
+export const Header = styled.div`
+  padding: 20px 0;
   height: 100px;
 `;
 
-export const BlockItems = styled.ul`
-  display: flex;
-  flex-direction: column;
-
+export const BlockItems = styled.div`
   div {
     display: flex;
-    flex-direction: row;
 
     span,
     strong {
@@ -37,7 +31,7 @@ export const BlockItems = styled.ul`
 
     .circle {
       color: #fff;
-      font-size: 45px;
+      font-size: 65px;
       margin-right: 15px;
     }
   }
@@ -48,7 +42,8 @@ export const BlockItems = styled.ul`
 
   div + div {
     animation: slideDown 0.3s cubic-bezier(0.25, 0.84, 0.83, 0.87);
-    margin-top: 10px;
+    display: flex;
+    align-items: center;
 
     div {
       display: flex;
@@ -57,7 +52,7 @@ export const BlockItems = styled.ul`
 
     .circle-green {
       color: #2dff73;
-      font-size: 45px;
+      font-size: 50px;
       margin-right: 15px;
     }
 
@@ -88,10 +83,7 @@ export const BlockItems = styled.ul`
 
 export const Title = styled.h1`
   font-size: 32px;
-  line-height: 56px;
-
-  margin-top: 17px;
-
+  margin-top: 12px;
   animation: slideDown 0.3s cubic-bezier(0.25, 0.84, 0.83, 0.87);
 
   @keyframes slideDown {
@@ -115,32 +107,10 @@ export const ContainerAutocomplete = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 20px;
-`;
-
-export const FormAutocomplete = styled.form`
-  max-width: 800px;
-
-  display: flex;
-  align-items: center;
-`;
-
-export const Input = styled.input`
-  width: 500px;
-  height: 50px;
-  border: 0;
-  border-radius: 5px;
-  color: #3a3a3a;
-  border: 2px solid #fff;
-  padding: 0 24px;
-
-  &::placeholder {
-    color: #3a3a3a;
-  }
 `;
 
 export const Button = styled.button`
-  width: 210px;
+  width: 100%;
   height: 60px;
   background: #00c677;
   border-radius: 5px;
@@ -161,6 +131,7 @@ export const LinkVoltar = styled.div`
   a {
     display: flex;
     align-items: center;
+    justify-content: center;
     text-decoration: none;
     color: #a8a8b3;
     transition: color 0.2s;
