@@ -18,12 +18,14 @@ import {
 } from './styles';
 
 import Logo from '../../images/retomar-svg.svg';
+import scheduleJSON from '../../schedule/schedule.json';
 
 const darkTheme = createMuiTheme({
   palette: {
     type: 'dark',
   },
 });
+
 
 function Horarios() {
   const [categoria, setCategoria] = useState('');
@@ -43,6 +45,88 @@ function Horarios() {
     setCategoria(newValue);
     console.log(`Escolheu ${categoria.dsCategoria}`);
     // Iterar JSON filtrando categoria
+  }
+
+  function formatDaysSchedule(store, turno) {
+    const openDays = [];
+
+    store.map((scheduleDay) => {
+      if (scheduleDay.monday[turno] === 1) {
+        openDays.push('Segunda-feira');
+      }
+      if (scheduleDay.tuesday[turno] === 1) {
+        openDays.push('terça-feira');
+      }
+      if (scheduleDay.wednesday[turno] === 1) {
+        openDays.push('quarta-feira');
+      }
+      if (scheduleDay.thursday[turno] === 1) {
+        openDays.push('quinta-feira');
+      }
+      if (scheduleDay.friday[turno] === 1) {
+        openDays.push('sexta-feira');
+      }
+      return openDays;
+    });
+    let strDays = '';
+
+    if (openDays.length === 5) {
+      return 'Todos os dias';
+    }
+    if (openDays.length > 1) {
+      openDays[openDays.length - 1] = `e ${openDays[openDays.length - 1]}`;
+    }
+    if (openDays.length === 2) {
+      openDays.map(d => {
+        strDays += `${d} `;
+        return strDays;
+      });
+      return strDays.charAt(0).toUpperCase() + strDays.slice(1);
+    }
+    openDays.map((d, index) => {
+      strDays += index !== openDays.length - 1 ? `${d}, ` : d;
+      return strDays;
+    });
+    return strDays.charAt(0).toUpperCase() + strDays.slice(1);
+  }
+
+  function buildEstabelecimentosList() {
+    return (
+      scheduleJSON.map((store) => (
+        <Estabelecimentos key={store.storeId}>
+          <div className="iconeCategoria">
+            <Avatar>
+              <StoreIcon />
+            </Avatar>
+          </div>
+          <div className="estabelecimento">
+            <strong>{store.store}</strong>
+            <p>Alimentação</p>
+            <div className="funcionamento">
+              <p>HORÁRIO DE FUNCIONAMENTO</p>
+              <div>
+                <p>
+                  {formatDaysSchedule(store.schedule, 0)}
+                  :
+                </p>
+                <span>das 8:00 às 12:00</span>
+              </div>
+              <div>
+                <p>
+                  {formatDaysSchedule(store.schedule, 1)}
+                  :
+                </p>
+                <span>das 13:30 às 18:00</span>
+              </div>
+              {/* <div>
+              <p>Todos os dias:</p>
+              <span>das 18:00 às 23:59</span>
+            </div> */}
+            </div>
+          </div>
+        </Estabelecimentos>
+      ))
+    );
   }
 
   return (
@@ -89,214 +173,8 @@ function Horarios() {
           </ContainerAutocomplete>
 
           <EstabelecimentosList>
-            <Estabelecimentos>
-              <div className="iconeCategoria">
-                <Avatar>
-                  <StoreIcon />
-                </Avatar>
-              </div>
-              <div className="estabelecimento">
-                <strong>No Ponto Supermercados</strong>
-                <p>Alimentação</p>
-                <div className="funcionamento">
-                  <p>HORÁRIO DE FUNCIONAMENTO</p>
-                  <div>
-                    <p>Segunda-feira, quarta-feira, sexta-feira:</p>
-                    <span>das 8:00 às 12:00</span>
-                  </div>
-                  <div>
-                    <p>Terca-feira e quinta-feira:</p>
-                    <span>das 13:30 às 18:00</span>
-                  </div>
-                  <div>
-                    <p>Todos os dias:</p>
-                    <span>das 18:00 às 23:59</span>
-                  </div>
-                </div>
-              </div>
-            </Estabelecimentos>
-            <Estabelecimentos>
-              <div className="iconeCategoria">
-                <Avatar>
-                  <StoreIcon />
-                </Avatar>
-              </div>
-              <div className="estabelecimento">
-                <strong>Altas Horas Bebidas</strong>
-                <p>Essenciais</p>
-                <div className="funcionamento">
-                  <p>HORÁRIO DE FUNCIONAMENTO</p>
-                  <div>
-                    <p>Segunda-feira, quarta-feira, sexta-feira:</p>
-                    <span>das 8:00 às 12:00</span>
-                  </div>
-                  <div>
-                    <p>Terca-feira e quinta-feira:</p>
-                    <span>das 13:30 às 18:00</span>
-                  </div>
-                  <div>
-                    <p>Todos os dias:</p>
-                    <span>das 18:00 às 23:59</span>
-                  </div>
-                </div>
-              </div>
-            </Estabelecimentos>
-            <Estabelecimentos>
-              <div className="iconeCategoria">
-                <Avatar>
-                  <StoreIcon />
-                </Avatar>
-              </div>
-              <div className="estabelecimento">
-                <strong>No Ponto Supermercados</strong>
-                <p>Alimentação</p>
-                <div className="funcionamento">
-                  <p>HORÁRIO DE FUNCIONAMENTO</p>
-                  <div>
-                    <p>Segunda-feira, quarta-feira, sexta-feira:</p>
-                    <span>das 8:00 às 12:00</span>
-                  </div>
-                  <div>
-                    <p>Terca-feira e quinta-feira:</p>
-                    <span>das 13:30 às 18:00</span>
-                  </div>
-                  <div>
-                    <p>Todos os dias:</p>
-                    <span>das 18:00 às 23:59</span>
-                  </div>
-                </div>
-              </div>
-            </Estabelecimentos>
-            <Estabelecimentos>
-              <div className="iconeCategoria">
-                <Avatar>
-                  <StoreIcon />
-                </Avatar>
-              </div>
-              <div className="estabelecimento">
-                <strong>Altas Horas Bebidas</strong>
-                <p>Essenciais</p>
-                <div className="funcionamento">
-                  <p>HORÁRIO DE FUNCIONAMENTO</p>
-                  <div>
-                    <p>Segunda-feira, quarta-feira, sexta-feira:</p>
-                    <span>das 8:00 às 12:00</span>
-                  </div>
-                  <div>
-                    <p>Terca-feira e quinta-feira:</p>
-                    <span>das 13:30 às 18:00</span>
-                  </div>
-                  <div>
-                    <p>Todos os dias:</p>
-                    <span>das 18:00 às 23:59</span>
-                  </div>
-                </div>
-              </div>
-            </Estabelecimentos>
-            <Estabelecimentos>
-              <div className="iconeCategoria">
-                <Avatar>
-                  <StoreIcon />
-                </Avatar>
-              </div>
-              <div className="estabelecimento">
-                <strong>No Ponto Supermercados</strong>
-                <p>Alimentação</p>
-                <div className="funcionamento">
-                  <p>HORÁRIO DE FUNCIONAMENTO</p>
-                  <div>
-                    <p>Segunda-feira, quarta-feira, sexta-feira:</p>
-                    <span>das 8:00 às 12:00</span>
-                  </div>
-                  <div>
-                    <p>Terca-feira e quinta-feira:</p>
-                    <span>das 13:30 às 18:00</span>
-                  </div>
-                  <div>
-                    <p>Todos os dias:</p>
-                    <span>das 18:00 às 23:59</span>
-                  </div>
-                </div>
-              </div>
-            </Estabelecimentos>
-            <Estabelecimentos>
-              <div className="iconeCategoria">
-                <Avatar>
-                  <StoreIcon />
-                </Avatar>
-              </div>
-              <div className="estabelecimento">
-                <strong>Altas Horas Bebidas</strong>
-                <p>Essenciais</p>
-                <div className="funcionamento">
-                  <p>HORÁRIO DE FUNCIONAMENTO</p>
-                  <div>
-                    <p>Segunda-feira, quarta-feira, sexta-feira:</p>
-                    <span>das 8:00 às 12:00</span>
-                  </div>
-                  <div>
-                    <p>Terca-feira e quinta-feira:</p>
-                    <span>das 13:30 às 18:00</span>
-                  </div>
-                  <div>
-                    <p>Todos os dias:</p>
-                    <span>das 18:00 às 23:59</span>
-                  </div>
-                </div>
-              </div>
-            </Estabelecimentos>
-            <Estabelecimentos>
-              <div className="iconeCategoria">
-                <Avatar>
-                  <StoreIcon />
-                </Avatar>
-              </div>
-              <div className="estabelecimento">
-                <strong>No Ponto Supermercados</strong>
-                <p>Alimentação</p>
-                <div className="funcionamento">
-                  <p>HORÁRIO DE FUNCIONAMENTO</p>
-                  <div>
-                    <p>Segunda-feira, quarta-feira, sexta-feira:</p>
-                    <span>das 8:00 às 12:00</span>
-                  </div>
-                  <div>
-                    <p>Terca-feira e quinta-feira:</p>
-                    <span>das 13:30 às 18:00</span>
-                  </div>
-                  <div>
-                    <p>Todos os dias:</p>
-                    <span>das 18:00 às 23:59</span>
-                  </div>
-                </div>
-              </div>
-            </Estabelecimentos>
-            <Estabelecimentos>
-              <div className="iconeCategoria">
-                <Avatar>
-                  <StoreIcon />
-                </Avatar>
-              </div>
-              <div className="estabelecimento">
-                <strong>Altas Horas Bebidas</strong>
-                <p>Essenciais</p>
-                <div className="funcionamento">
-                  <p>HORÁRIO DE FUNCIONAMENTO</p>
-                  <div>
-                    <p>Segunda-feira, quarta-feira, sexta-feira:</p>
-                    <span>das 8:00 às 12:00</span>
-                  </div>
-                  <div>
-                    <p>Terca-feira e quinta-feira:</p>
-                    <span>das 13:30 às 18:00</span>
-                  </div>
-                  <div>
-                    <p>Todos os dias:</p>
-                    <span>das 18:00 às 23:59</span>
-                  </div>
-                </div>
-              </div>
-            </Estabelecimentos>
+            {buildEstabelecimentosList()}
+
           </EstabelecimentosList>
         </ContainerHorarios>
       </AnimationContainer>
