@@ -66,11 +66,11 @@ export const BlockItems = styled.ul`
       display: flex;
       align-items: center;
       text-decoration: none;
-      color: #777777;
+      color: #fff;
       transition: color 0.2s;
 
       &:hover {
-        color: #666;
+        color: #999;
       }
     }
   }
@@ -123,20 +123,6 @@ export const FormAutocomplete = styled.form`
 
   display: flex;
   align-items: center;
-`;
-
-export const Input = styled.input`
-  width: 500px;
-  height: 50px;
-  border: 0;
-  border-radius: 5px;
-  color: #3a3a3a;
-  border: 2px solid #fff;
-  padding: 0 24px;
-
-  &::placeholder {
-    color: #3a3a3a;
-  }
 `;
 
 export const Button = styled.button`

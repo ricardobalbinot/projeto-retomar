@@ -39,11 +39,11 @@ export const BlockItems = styled.div`
       display: flex;
       align-items: center;
       text-decoration: none;
-      color: #777777;
+      color: #e6e6e6;
       transition: color 0.2s;
 
       &:hover {
-        color: #666;
+        color: #fff;
       }
     }
   }
@@ -91,10 +91,6 @@ export const Estabelecimentos = styled.div`
   border-radius: 10px;
   transition: transform 0.2s;
 
-  &:hover {
-    transform: translateX(10px);
-  }
-
   .iconeCategoria {
     padding: 20px;
   }
@@ -117,9 +113,12 @@ export const Estabelecimentos = styled.div`
     .funcionamento {
       margin-top: 20px;
 
+      p {
+        color: #000;
+      }
+
       .titleFuncionamento {
         color: #3d3d4d;
-        font-weight: bold;
       }
 
       div {
@@ -129,6 +128,7 @@ export const Estabelecimentos = styled.div`
       span {
         font-size: 14px;
         color: #05a200;
+        font-weight: bold;
       }
     }
   }
