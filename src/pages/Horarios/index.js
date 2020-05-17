@@ -47,6 +47,14 @@ function Horarios() {
     // Iterar JSON filtrando categoria
   }
 
+  function formatStoreName(storeName) {
+    return storeName
+    .toLowerCase()
+    .split(' ')
+    .map(storeName => storeName.charAt(0).toUpperCase() + storeName.slice(1))
+    .join(' ');
+  }
+
   function formatDaysSchedule(store, turno) {
     const openDays = [];
 
@@ -100,8 +108,8 @@ function Horarios() {
             </Avatar>
           </div>
           <div className="estabelecimento">
-            <strong>{store.store}</strong>
-            <p>Alimentação</p>
+            <strong>{formatStoreName(store.store)}</strong>
+            {/* TO-DO: Dado estático. Necessário buscar do schedule.json. <p>Alimentação</p> */}
             <div className="funcionamento">
               <p>HORÁRIO DE FUNCIONAMENTO</p>
               <div>
