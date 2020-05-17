@@ -48,6 +48,14 @@ function Horarios() {
     // Iterar JSON filtrando categoria
   }
 
+  function formatStoreName(storeName) {
+    return storeName
+      .toLowerCase()
+      .split(' ')
+      .map(storeNames => storeNames.charAt(0).toUpperCase() + storeNames.slice(1))
+      .join(' ');
+  }
+
   function translateCategorias(types) {
     const categorias = [];
 
@@ -135,7 +143,8 @@ function Horarios() {
                 </Avatar>
               </div>
               <div className="estabelecimento">
-                <strong>{store.store}</strong>
+                <strong>{formatStoreName(store.store)}</strong>
+                <p>{store.vicinity}</p>
                 <p>{categoriasText}</p>
                 <div className="funcionamento">
                   <p>HORÁRIO DE FUNCIONAMENTO</p>

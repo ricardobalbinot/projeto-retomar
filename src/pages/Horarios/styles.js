@@ -39,7 +39,7 @@ export const BlockItems = styled.div`
       display: flex;
       align-items: center;
       text-decoration: none;
-      color: #a8a8b3;
+      color: #777777;
       transition: color 0.2s;
 
       &:hover {
@@ -66,6 +66,7 @@ export const ContainerHorarios = styled.div`
 export const TitleCategoria = styled.h3`
   max-width: 450px;
   line-height: 56px;
+  margin: 10px;
 `;
 
 export const ContainerAutocomplete = styled.div`
@@ -109,12 +110,17 @@ export const Estabelecimentos = styled.div`
 
     p {
       font-size: 14px;
-      color: #a8a8b3;
+      color: #777777;
       margin-top: 4px;
     }
 
     .funcionamento {
       margin-top: 20px;
+
+      .titleFuncionamento {
+        color: #3d3d4d;
+        font-weight: bold;
+      }
 
       div {
         margin-top: 5px;
