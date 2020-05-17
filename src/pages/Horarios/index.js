@@ -27,8 +27,13 @@ function Horarios() {
 
   const categoriasEstabelecimentos = [
     { idCategoria: 1, dsCategoria: 'Essenciais' },
-    { idCategoria: 2, dsCategoria: 'Alimentação' },
-    { idCategoria: 3, dsCategoria: 'Saúde' },
+    { idCategoria: 2, dsCategoria: 'Saúde' },
+    { idCategoria: 3, dsCategoria: 'Alimentação' },
+    { idCategoria: 4, dsCategoria: 'Entretenimento' },
+    { idCategoria: 5, dsCategoria: 'Beleza e Corpo' },
+    { idCategoria: 6, dsCategoria: 'Loja' },
+    { idCategoria: 7, dsCategoria: 'Serviços' },
+    { idCategoria: 8, dsCategoria: 'Religioso' },
   ];
 
   function handleSelecionaCategoria(newValue) {
