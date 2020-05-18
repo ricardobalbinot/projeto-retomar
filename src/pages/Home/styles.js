@@ -41,7 +41,7 @@ export const BlockItems = styled.div`
 
     .circle {
       color: #fff;
-      font-size: 65px;
+      font-size: 40px;
       margin-right: 15px;
     }
   }

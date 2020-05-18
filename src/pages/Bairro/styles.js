@@ -38,7 +38,7 @@ export const BlockItems = styled.div`
 
     .circle {
       color: #fff;
-      font-size: 65px;
+      font-size: 40px;
       margin-right: 15px;
     }
   }
@@ -51,6 +51,7 @@ export const BlockItems = styled.div`
     animation: slideDown 0.3s cubic-bezier(0.25, 0.84, 0.83, 0.87);
     display: flex;
     align-items: center;
+    margin-top: 10px;
 
     div {
       display: flex;
@@ -59,8 +60,8 @@ export const BlockItems = styled.div`
 
     .circle-green {
       color: #2dff73;
-      font-size: 50px;
-      margin-right: 15px;
+      font-size: 35px;
+      margin-right: 20px;
     }
 
     a {
@@ -90,7 +91,7 @@ export const BlockItems = styled.div`
 
 export const Title = styled.h1`
   font-size: 32px;
-  margin-top: 12px;
+  margin-top: 35px;
   animation: slideDown 0.3s cubic-bezier(0.25, 0.84, 0.83, 0.87);
 
   @keyframes slideDown {
