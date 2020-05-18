@@ -369,12 +369,12 @@ function Horarios() {
           </Row>
 
           <Row>
-            <Col xs={12} lgOffset={1}>
+            <Col xs={12}>
               <TitleCategoria>Filtre por uma categoria:</TitleCategoria>
             </Col>
           </Row>
           <Row>
-            <Col xs={12} lgOffset={1}>
+            <Col xs={12}>
               <ThemeProvider theme={darkTheme}>
                 <Autocomplete
                   options={categoriasEstabelecimentos}
