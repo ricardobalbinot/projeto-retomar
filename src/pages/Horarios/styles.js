@@ -78,7 +78,7 @@ export const Estabelecimentos = styled.div`
 
   flex: 1;
   min-height: 225px;
-  margin: 10px;
+  margin: 10px 0;
   background: #fff;
   border-radius: 10px;
 
