@@ -16,8 +16,15 @@ export const AnimationContainer = styled.div`
 `;
 
 export const Header = styled.div`
+  display: flex;
   padding: 20px 0;
   height: 100px;
+
+  @media (max-width: 770px) {
+    & {
+      justify-content: center;
+    }
+  }
 `;
 
 export const BlockItems = styled.div`

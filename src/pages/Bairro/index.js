@@ -63,7 +63,7 @@ function Bairro() {
   return (
     <>
       <Grid>
-        <Row center="xs">
+        <Row>
           <Col xs={12}>
             <Header>
               <Link to="/">

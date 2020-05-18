@@ -62,7 +62,7 @@ function Home() {
   return (
     <>
       <Grid>
-        <Row center="xs">
+        <Row>
           <Col xs={12}>
             <Header>
               <img src={Logo} width="150" alt="Projeto Retomar" />
