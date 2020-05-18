@@ -39,11 +39,11 @@ export const BlockItems = styled.div`
       display: flex;
       align-items: center;
       text-decoration: none;
-      color: #a8a8b3;
+      color: #e6e6e6;
       transition: color 0.2s;
 
       &:hover {
-        color: #666;
+        color: #fff;
       }
     }
   }
@@ -66,6 +66,7 @@ export const ContainerHorarios = styled.div`
 export const TitleCategoria = styled.h3`
   max-width: 450px;
   line-height: 56px;
+  margin: 10px;
 `;
 
 export const ContainerAutocomplete = styled.div`
@@ -90,10 +91,6 @@ export const Estabelecimentos = styled.div`
   border-radius: 10px;
   transition: transform 0.2s;
 
-  &:hover {
-    transform: translateX(10px);
-  }
-
   .iconeCategoria {
     padding: 20px;
   }
@@ -109,12 +106,20 @@ export const Estabelecimentos = styled.div`
 
     p {
       font-size: 14px;
-      color: #a8a8b3;
+      color: #777777;
       margin-top: 4px;
     }
 
     .funcionamento {
       margin-top: 20px;
+
+      p {
+        color: #000;
+      }
+
+      .titleFuncionamento {
+        color: #3d3d4d;
+      }
 
       div {
         margin-top: 5px;
@@ -123,6 +128,7 @@ export const Estabelecimentos = styled.div`
       span {
         font-size: 14px;
         color: #05a200;
+        font-weight: bold;
       }
     }
   }

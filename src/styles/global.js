@@ -1,6 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: ProximaNova;
+    src: url('../fonts/ProximaNova.otf');
+  }
+
   * {
     margin: 0;
     padding: 0;
@@ -14,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body, input, button {
-    font: 16px Roboto, sans-serif;
+    font: 16px ProximaNova, sans-serif;
     color: #fff;
   }
 
