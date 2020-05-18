@@ -78,7 +78,7 @@ function Home() {
               <div>
                 <span className="circle">•</span>
                 <span>
-                  Confira o horário de funcionamento dos estabelecimentos da sua
+                  Confira o <strong>horário de funcionamento</strong> dos estabelecimentos da sua
                   cidade
                 </span>
               </div>

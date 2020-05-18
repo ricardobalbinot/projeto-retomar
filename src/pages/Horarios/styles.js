@@ -52,11 +52,11 @@ export const ItemGuia = styled.div`
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: #e6e6e6;
+    color: #fff;
     transition: color 0.2s;
 
     &:hover {
-      color: #fff;
+      color: #adadad;
     }
   }
 `;
@@ -81,6 +81,7 @@ export const Estabelecimentos = styled.div`
   margin: 10px;
   background: #fff;
   border-radius: 10px;
+  min-height: 17em;
 
   .iconeCategoria {
     padding: 20px;
@@ -91,25 +92,25 @@ export const Estabelecimentos = styled.div`
     flex: 1;
 
     strong {
-      font-size: 17px;
-      color: #3d3d4d;
+      font-size: 1.5em;
+      color: #313131;
     }
 
     p {
-      font-size: 14px;
-      color: #777777;
+      font-size: 1em;
+      color: #313131;
       margin-top: 4px;
     }
 
     .funcionamento {
       margin-top: 20px;
 
-      p {
-        color: #000;
+      .titleFuncionamento {
+        color: #4A4A4A;
       }
 
-      .titleFuncionamento {
-        color: #3d3d4d;
+      p {
+        color: #313131;
       }
 
       div {

@@ -140,11 +140,11 @@ export const LinkVoltar = styled.div`
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    color: #adadad;
+    color: #fff;
     transition: color 0.2s;
 
     &:hover {
-      color: #d8d8d8;
+      color: #adadad;
     }
   }
 `;

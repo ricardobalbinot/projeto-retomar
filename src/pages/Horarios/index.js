@@ -307,7 +307,7 @@ function Horarios() {
                 <p>{store.vicinity}</p>
                 <p>{categoriasText}</p>
                 <div className="funcionamento">
-                  <p>HORÁRIO DE FUNCIONAMENTO</p>
+                  <p className="titleFuncionamento">HORÁRIO DE FUNCIONAMENTO</p>
                   {manha && (
                     <div>
                       <p>{manha}:</p>
