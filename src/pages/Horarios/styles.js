@@ -66,7 +66,7 @@ export const TitleCategoria = styled.h3`
 `;
 
 export const EstabelecimentosList = styled.div`
-  margin-top: 20px;
+  margin-top: 40px;
 
   display: flex;
   flex-direction: row;
